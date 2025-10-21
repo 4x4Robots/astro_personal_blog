@@ -13,3 +13,11 @@ You can run a local development server with
 ```sh
 npm run dev
 ```
+
+## Resources
+
+[Astro syntax vs JSX - comparison](https://docs.astro.build/en/reference/astro-syntax/#differences-between-astro-and-jsx)
+
+[Astro `<style>` tags](https://docs.astro.build/en/guides/styling/#styling-in-astro)
+
+[CSS variables in Astro](https://docs.astro.build/en/guides/styling/#css-variables)
