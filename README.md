@@ -1,6 +1,6 @@
-# Learning astro with a project
+# Learning Astro with a project
 
-I'm following [this tutorial](https://docs.astro.build/en/tutorial/0-introduction/) to get started with astro and try to create a personal blog.
+I'm following [this tutorial](https://docs.astro.build/en/tutorial/0-introduction/) to get started with Astro and try to create a personal blog.
 
 ## Deployment
 
