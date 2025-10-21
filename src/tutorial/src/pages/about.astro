@@ -22,12 +22,22 @@ const goal = 3;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
+        <style>
+            h1 {
+                color: purple;
+                font-size: 4rem;
+            }
+            .skill {
+                color: green;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
         <a href="/">Home</a>
         <a href="/blog/">Blog</a>
         <a href="/about/">About</a>
-        
+
         <!-- You can use JavaScript (from the frontmatter) with curly braces { } inside the html template. -->
         <h1>{pageTitle}</h1>
         <h2>... and my new Astro site!</h2>
@@ -46,7 +56,9 @@ const goal = 3;
         <ul>
             <li>My name is {identity.firstName}.</li>
             <li>
-                I live in {identity.country} and I work as a {identity.occupation}.
+                I live in {identity.country} and I work as a {
+                    identity.occupation
+                }.
             </li>
             <!-- Astro's templating syntax is similar to the JSX syntax -->
             {
@@ -60,15 +72,20 @@ const goal = 3;
         </ul>
         <p>My skills are:</p>
         <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
-        
+
         <!-- You can use JavaScript expressions to conditionally render content. -->
         {happy && <p>I am happy to be learning Astro!</p>}
 
         {finished && <p>I finished this tutorial!</p>}
 
-        {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-
+        {
+            goal === 3 ? (
+                <p>My goal is to finish in 3 days.</p>
+            ) : (
+                <p>My goal is not 3 days.</p>
+            )
+        }
     </body>
 </html>
