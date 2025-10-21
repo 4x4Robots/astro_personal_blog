@@ -1,5 +1,14 @@
 ---
 const pageTitle = "About Me";
+
+const identity = {
+    firstName: "Sarah",
+    country: "Canada",
+    occupation: "Technical Writer",
+    hobbies: ["photography", "birdwatching", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 ---
 
 <html lang="en">
@@ -14,7 +23,8 @@ const pageTitle = "About Me";
         <a href="/">Home</a>
         <a href="/blog/">Blog</a>
         <a href="/about/">About</a>
-
+        
+        <!-- You can use JavaScript (from the frontmatter) with curly braces { } inside the html template. -->
         <h1>{pageTitle}</h1>
         <h2>... and my new Astro site!</h2>
 
@@ -27,5 +37,26 @@ const pageTitle = "About Me";
             This site will update as I complete more of the tutorial, so keep
             checking back and see how my journey is going!
         </p>
+
+        <p>Here are a few facts about me:</p>
+        <ul>
+            <li>My name is {identity.firstName}.</li>
+            <li>
+                I live in {identity.country} and I work as a {identity.occupation}.
+            </li>
+            <!-- Astro's templating syntax is similar to the JSX syntax -->
+            {
+                identity.hobbies.length >= 2 && (
+                    <li>
+                        Two of my hobbies are: {identity.hobbies[0]} and{" "}
+                        {identity.hobbies[1]}
+                    </li>
+                )
+            }
+        </ul>
+        <p>My skills are:</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
     </body>
 </html>
