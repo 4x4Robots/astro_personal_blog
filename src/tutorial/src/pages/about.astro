@@ -1,7 +1,5 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
 
@@ -23,14 +21,9 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-        <style define:vars={{skillColor, fontWeight, textCase}}>
+<BaseLayout pageTitle={pageTitle}>
+        <!-- Since <h1> is created in the layout component, we need to add the is:global attribute to affect every element on this page. -->
+        <style is:global define:vars={{skillColor, fontWeight, textCase}}>
             h1 {
                 color: purple;
                 font-size: 4rem;
@@ -41,12 +34,7 @@ const textCase = "uppercase";
                 text-transform: var(--textCase);
             }
         </style>
-    </head>
-    <body>
-		<Header />
 
-        <!-- You can use JavaScript (from the frontmatter) with curly braces { } inside the html template. -->
-        <h1>{pageTitle}</h1>
         <h2>... and my new Astro site!</h2>
 
         <p>
@@ -61,6 +49,7 @@ const textCase = "uppercase";
 
         <p>Here are a few facts about me:</p>
         <ul>
+        <!-- You can use JavaScript (from the frontmatter) with curly braces { } inside the html template. -->
             <li>My name is {identity.firstName}.</li>
             <li>
                 I live in {identity.country} and I work as a {
@@ -95,10 +84,4 @@ const textCase = "uppercase";
             )
         }
         
-        <Footer />
-
-		<script>
-			import "../scripts/menu.js"
-		</script>
-    </body>
-</html>
+    </BaseLayout>
