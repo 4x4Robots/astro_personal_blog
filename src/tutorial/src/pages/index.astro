@@ -21,14 +21,9 @@ const pageTitle = "Home Page"; // JavaScript or TypeScript goes here.
 		<h2>My Astro site</h2>
 
 		<Footer />
-		<script>
-			const menu = document.querySelector(".menu");
 
-			menu?.addEventListener("click", () => {
-				const isExpanded =
-					menu.getAttribute("aria-expanded") === "true";
-				menu.setAttribute("aria-expanded", `${!isExpanded}`);
-			});
+		<script>
+			import "../scripts/menu.js"
 		</script>
 	</body>
 </html>
