@@ -1,0 +1,9 @@
+---
+/* When the `layout` frontmatter property is included in an `.md` file,
+all of the frontmatter YAML values are available to the layout file. */
+const { frontmatter } = Astro.props;
+---
+<meta charset="utf-8" />
+<h1>{frontmatter.title}</h1>
+<p>Written by {frontmatter.author}</p>
+<slot />
