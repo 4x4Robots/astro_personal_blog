@@ -1,0 +1,20 @@
+---
+/* Your Markdown and MDX files no longer automatically become pages using Astro’s file-based
+routing when they are inside a collection, so you must create a page responsible for generating
+each individual blog post. */
+import { getCollection, render } from 'astro:content';
+import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id }, props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<MarkdownPostLayout frontmatter={post.data}>
+  <Content />
+</MarkdownPostLayout>
